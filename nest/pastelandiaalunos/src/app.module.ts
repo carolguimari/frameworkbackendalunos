@@ -4,7 +4,10 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { Ingrediente } from './pasteis/entities/ingrediente.entity';
 import { Pastel } from './pasteis/entities/pastel.entity';
+import { Cliente } from './pasteis/entities/cliente.entity';
 import { PasteisModule } from './pasteis/pasteis.module';
+import { ClientesModule } from './pasteis/clientes.module';
+import { PedidoModule } from './pedido/pedido.module';
 
 @Module({
   imports: [
@@ -15,11 +18,13 @@ import { PasteisModule } from './pasteis/pasteis.module';
       username: 'pastelandia-alunos',
       password: 'my-ultra-password',
       database: 'pastelandia-alunos',
-      entities: [Pastel, Ingrediente],
+      entities: [Pastel, Ingrediente, Cliente],
       synchronize: true,
       logging: true,
     }),
+    ClientesModule,
     PasteisModule,
+    PedidoModule,
   ],
   controllers: [AppController],
   providers: [AppService],
